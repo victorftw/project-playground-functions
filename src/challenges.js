@@ -50,10 +50,20 @@ function highestCount(array) {
   return vezesAparece;
 }
 
-// Desafio 7
+// Desafio 7 // Feito com a mentoria do Nasc.
 function catAndMouse(mouse, cat1, cat2) {
-  // seu código aqui
-}
+  let distanciaC1 = Math.abs(cat1 - mouse);
+  let distanciaC2 = Math.abs(cat2 - mouse);
+
+  if (distanciaC1 < distanciaC2) {
+    return 'cat1';
+  } else if (distanciaC1 > distanciaC2) {
+      return 'cat2';
+    } else {
+      return 'os gatos trombam e o rato foge';
+    }
+  }
+
 
 // Desafio 8
 function fizzBuzz(array) {
