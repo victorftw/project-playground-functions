@@ -8,8 +8,9 @@ function compareTrue(animalum, animaldois) {
 }
 
 // Desafio 2
-function calcArea() {
-  // seu código aqui
+function calcArea(base, altura) {
+  let areaTotal = (base * altura) / 2;
+  return areaTotal;
 }
 
 // Desafio 3
