@@ -34,8 +34,20 @@ function footballPoints(vitorias, empates) {
 }
 
 // Desafio 6
-function highestCount() {
-  // seu código aqui
+function highestCount(array) {
+  let maiorNumero = array[0];
+  let vezesAparece = 0;
+  for (let index = 0; index < array.length; index += 1) {
+    if (maiorNumero < array[index]) {
+      maiorNumero = array[index];
+    }
+  }
+  for (let index = 0; index < array.length; index += 1) {
+    if (maiorNumero === array[index]) {
+      vezesAparece += 1;
+    }
+  }
+  return vezesAparece;
 }
 
 // Desafio 7
