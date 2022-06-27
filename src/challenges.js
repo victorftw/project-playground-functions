@@ -1,6 +1,6 @@
 // Desafio 1
 function compareTrue(animalum, animaldois) {
-  if (animalum === animaldois) {
+  if (animalum === true && animaldois === true) {
     return true;
   } else {
     return false;
