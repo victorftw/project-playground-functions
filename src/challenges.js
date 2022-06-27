@@ -51,13 +51,25 @@ function highestCount(array) {
 }
 
 // Desafio 7
-function catAndMouse() {
+function catAndMouse(mouse, cat1, cat2) {
   // seu código aqui
 }
 
 // Desafio 8
-function fizzBuzz() {
-  // seu código aqui
+function fizzBuzz(array) {
+  let arrayRetorno = [];
+  for (numero of array) {
+    if (numero % 3 === 0 && numero % 5 !== 0) {
+      arrayRetorno.push('fizz');
+    } else if (numero % 5 === 0 && numero % 3 !== 0) {
+      arrayRetorno.push('buzz');
+    } else if (numero % 3 === 0 && numero % 5 === 0) {
+      arrayRetorno.push('fizzBuzz');
+    } else if (numero % 3 !== 0 && numero % 5 !== 0) {
+      arrayRetorno.push('bug!');
+    }
+  }
+  return arrayRetorno;
 }
 
 // Desafio 9
