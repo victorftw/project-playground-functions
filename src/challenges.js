@@ -1,10 +1,6 @@
 // Desafio 1
 function compareTrue(animalum, animaldois) {
-  if (animalum === true && animaldois === true) {
-    return true;
-  } else {
-    return false;
-  }
+  return animalum === true && animaldois === true;
 }
 
 // Desafio 2
@@ -23,7 +19,7 @@ function splitSentence(frase) {
 function concatName(array) {
   let primeiroIndex = array[0];
   let ultimoIndex = array[array.length - 1];
-  let retornoArray = ultimoIndex + ', ' + primeiroIndex;
+  let retornoArray = `${ultimoIndex}, ${primeiroIndex}`;
   return retornoArray;
 }
 
@@ -34,14 +30,19 @@ function footballPoints(vitorias, empates) {
 }
 
 // Desafio 6
-function highestCount(array) {
+function findHighestNumber(array) {
   let maiorNumero = array[0];
-  let vezesAparece = 0;
   for (let index = 0; index < array.length; index += 1) {
     if (maiorNumero < array[index]) {
       maiorNumero = array[index];
     }
   }
+  return maiorNumero;
+}
+
+function highestCount(array) {
+  const maiorNumero = findHighestNumber(array);
+  let vezesAparece = 0;
   for (let index = 0; index < array.length; index += 1) {
     if (maiorNumero === array[index]) {
       vezesAparece += 1;
@@ -57,27 +58,32 @@ function catAndMouse(mouse, cat1, cat2) {
 
   if (distanciaC1 < distanciaC2) {
     return 'cat1';
-  } else if (distanciaC1 > distanciaC2) {
-      return 'cat2';
-    } else {
-      return 'os gatos trombam e o rato foge';
-    }
   }
-
+  if (distanciaC1 > distanciaC2) {
+    return 'cat2';
+  }
+  return 'os gatos trombam e o rato foge';
+}
 
 // Desafio 8
+function getCorrectFizzBuzz(number) {
+  if (number % 3 === 0 && number % 5 === 0) {
+    return 'fizzBuzz';
+  }
+  if (number % 3 === 0) {
+    return 'fizz';
+  }
+  if (number % 5 === 0) {
+    return 'buzz';
+  }
+  return 'bug!';
+}
+
 function fizzBuzz(array) {
   let arrayRetorno = [];
-  for (numero of array) {
-    if (numero % 3 === 0 && numero % 5 !== 0) {
-      arrayRetorno.push('fizz');
-    } else if (numero % 5 === 0 && numero % 3 !== 0) {
-      arrayRetorno.push('buzz');
-    } else if (numero % 3 === 0 && numero % 5 === 0) {
-      arrayRetorno.push('fizzBuzz');
-    } else if (numero % 3 !== 0 && numero % 5 !== 0) {
-      arrayRetorno.push('bug!');
-    }
+  for (let number of array) {
+    const result = getCorrectFizzBuzz(number);
+    arrayRetorno.push(result);
   }
   return arrayRetorno;
 }
@@ -85,18 +91,18 @@ function fizzBuzz(array) {
 // Desafio 9
 function encode(string) {
   let texto = string.split('');
-
+  const dicionario = {
+    a: 1,
+    e: 2,
+    i: 3,
+    o: 4,
+    u: 5,
+  };
   for (let index = 0; index < texto.length; index += 1) {
-    if (texto[index] === 'a') {
-      texto[index] = 1;
-    } else if (texto[index] === 'e') {
-      texto[index] = 2;
-    } else if (texto[index] === 'i') {
-      texto[index] = 3;
-    } else if (texto[index] === 'o') {
-      texto[index] = 4;
-    } else if (texto[index] === 'u') {
-      texto[index] = 5;
+    let letraAtual = texto[index];
+    let resultado = dicionario[letraAtual];
+    if (resultado) {
+      texto[index] = resultado;
     }
   }
 
@@ -105,18 +111,18 @@ function encode(string) {
 }
 function decode(string) {
   let texto = string.split('');
-
+  const dicionario = {
+    1: 'a',
+    2: 'e',
+    3: 'i',
+    4: 'o',
+    5: 'u',
+  };
   for (let index = 0; index < texto.length; index += 1) {
-    if (texto[index] === '1') {
-      texto[index] = 'a';
-    } else if (texto[index] === '2') {
-      texto[index] = 'e';
-    } else if (texto[index] === '3') {
-      texto[index] = 'i';
-    } else if (texto[index] === '4') {
-      texto[index] = 'o';
-    } else if (texto[index] === '5') {
-      texto[index] = 'u';
+    let letraAtual = texto[index];
+    let resultado = dicionario[letraAtual];
+    if (resultado) {
+      texto[index] = resultado;
     }
   }
 
@@ -132,7 +138,7 @@ function techList(array, pessoa) {
   if (arrayOrdenado.length === 0) {
     return 'Vazio!';
   }
-  for (index of arrayOrdenado) {
+  for (let index of arrayOrdenado) {
     retorno.push({ tech: index, name: pessoa });
   }
   return retorno;
